@@ -42,6 +42,7 @@ for link in job_links:
         phone_element.click()
         time.sleep(4)
         phone_number = driver.find_element(By.CSS_SELECTOR, 'a.css-v1ndtc').text
+        phone_number = ''.join(phone_number.split())
 
         with open('vacancy.txt', 'a', encoding='utf-8') as file:
             file.write(f'#Вакансия\n\n{title}\n\n{descr}\n\nТелефон: {phone_number}\n\n**************\n\n')
