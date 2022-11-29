@@ -42,7 +42,16 @@ for link in job_links:
         phone_element.click()
         time.sleep(4)
         phone_number = driver.find_element(By.CSS_SELECTOR, 'a.css-v1ndtc').text
+
+        phone_number = phone_number.replace('+', '')
+        phone_number = ''.join(phone_number.split('-'))
         phone_number = ''.join(phone_number.split())
+        if len(phone_number) == 9:
+            phone_number = '998' + phone_number
+        else:
+            pass
+
+        phone_number = '+' + phone_number
 
         with open('vacancy.txt', 'a', encoding='utf-8') as file:
             file.write(f'#Вакансия\n\n{title}\n\n{descr}\n\nТелефон: {phone_number}\n\n**************\n\n')
