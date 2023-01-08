@@ -3,7 +3,9 @@ import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from fake_useragent import UserAgent
 
+ua = UserAgent()
 
 def get_job_links(url):
     headers = {
@@ -12,7 +14,7 @@ def get_job_links(url):
         "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6,uz;q=0.5,de;q=0.4",
         "Cache-Control": "no-cache",
         "Connection": "keep-alive",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
+        "User-Agent": ua.random
     }
 
     r = requests.get(url=url, headers=headers)
