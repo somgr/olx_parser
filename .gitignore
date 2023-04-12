@@ -1,2 +1,4 @@
 .idea
 vacancy.txt
+venv/
+chromedriver.exe
