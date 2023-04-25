@@ -39,7 +39,7 @@ def get_info_from_links(job_links):
         try:
             driver.get(url=link)
             time.sleep(2)
-            coockies = driver.find_element(By.XPATH, '//*[@id="root"]/div[3]/div[3]/button/span/span')
+            coockies = driver.find_element(By.XPATH, '//*[@id="root"]/div[4]/div[3]/button/span/span')
             time.sleep(1)
             coockies.click()
             time.sleep(1)
@@ -47,7 +47,7 @@ def get_info_from_links(job_links):
             time.sleep(2)
             phone_element.click()
             time.sleep(4)
-            phone_number = driver.find_element(By.CSS_SELECTOR, 'a.css-v1ndtc').text
+            phone_number = driver.find_element(By.CLASS_NAME, 'css-v1ndtc').text
 
             phone_number = phone_number.replace('tel:', '')
             phone_number = phone_number.replace('+', '')
